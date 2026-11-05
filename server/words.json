@@ -1,0 +1,167 @@
+[
+  {
+    "id": "90df86ce3a20",
+    "word": "stairs",
+    "translation": "merdiven",
+    "alternatives": [
+      {
+        "pos": "isim",
+        "terms": [
+          "merdivenler",
+          "merdiven"
+        ]
+      }
+    ],
+    "sentence": "click, and then he stood at the bottom of the stairs and said,",
+    "sentenceTranslation": "tıklayın ve sonra merdivenlerin dibinde durdu ve şöyle dedi:",
+    "source": "youtube",
+    "count": 1,
+    "createdAt": "2026-11-05T20:51:26.320Z",
+    "updatedAt": "2026-11-05T20:51:26.320Z"
+  },
+  {
+    "id": "f482770329da",
+    "word": "bottom",
+    "translation": "alt",
+    "alternatives": [
+      {
+        "pos": "isim",
+        "terms": [
+          "alt",
+          "dip",
+          "temel",
+          "kıç",
+          "tekne"
+        ]
+      },
+      {
+        "pos": "sıfat",
+        "terms": [
+          "alttaki",
+          "dipteki"
+        ]
+      },
+      {
+        "pos": "fiil",
+        "terms": [
+          "dip koymak",
+          "temeline inmek",
+          "esasını araştırmak"
+        ]
+      }
+    ],
+    "sentence": "click, and then he stood at the bottom of the stairs and said,",
+    "sentenceTranslation": "tıklayın ve sonra merdivenlerin dibinde durdu ve şöyle dedi:",
+    "source": "youtube",
+    "count": 1,
+    "createdAt": "2026-11-05T20:51:23.102Z",
+    "updatedAt": "2026-11-05T20:51:23.102Z"
+  },
+  {
+    "id": "0d13ed6b5746",
+    "word": "stood",
+    "translation": "durmak",
+    "alternatives": [
+      {
+        "pos": "fiil",
+        "terms": [
+          "durmak",
+          "ayakta durmak",
+          "direnmek",
+          "kalmak",
+          "çekilmek"
+        ]
+      }
+    ],
+    "sentence": "click, and then he stood at the bottom of the stairs and said,",
+    "sentenceTranslation": "tıklayın ve sonra merdivenlerin dibinde durdu ve şöyle dedi:",
+    "source": "youtube",
+    "count": 1,
+    "createdAt": "2026-11-05T20:51:13.631Z",
+    "updatedAt": "2026-11-05T20:51:13.631Z"
+  },
+  {
+    "id": "77760379b9d8",
+    "word": "lamp",
+    "translation": "lamba",
+    "alternatives": [
+      {
+        "pos": "isim",
+        "terms": [
+          "ampul",
+          "ışık",
+          "far",
+          "fener",
+          "lâmba"
+        ]
+      }
+    ],
+    "sentence": "lamp in the living room. Click, click, click, and then",
+    "sentenceTranslation": "oturma odasındaki lamba. Tıklayın, tıklayın, tıklayın ve ardından",
+    "source": "youtube",
+    "count": 1,
+    "createdAt": "2026-11-05T20:51:08.866Z",
+    "updatedAt": "2026-11-05T20:51:08.866Z"
+  },
+  {
+    "id": "a2a9a686c239",
+    "word": "hallway",
+    "translation": "koridor",
+    "alternatives": [
+      {
+        "pos": "isim",
+        "terms": [
+          "koridor",
+          "hol"
+        ]
+      }
+    ],
+    "sentence": "checked it twice. Then the kitchen light. Then the hallway. Then",
+    "sentenceTranslation": "iki kere kontrol ettim. Sonra mutfağın ışığı. Sonra koridor. Daha sonra",
+    "source": "youtube",
+    "count": 1,
+    "createdAt": "2026-11-05T20:51:00.763Z",
+    "updatedAt": "2026-11-05T20:51:00.763Z"
+  },
+  {
+    "id": "4c3b321ee800",
+    "word": "twice",
+    "translation": "iki kere",
+    "alternatives": [
+      {
+        "pos": "zarf",
+        "terms": [
+          "iki kere",
+          "iki defa"
+        ]
+      }
+    ],
+    "sentence": "checked it twice. Then the kitchen light. Then the hallway. Then",
+    "sentenceTranslation": "iki kere kontrol ettim. Sonra mutfağın ışığı. Sonra koridor. Daha sonra",
+    "source": "youtube",
+    "count": 1,
+    "createdAt": "2026-11-05T20:50:55.722Z",
+    "updatedAt": "2026-11-05T20:50:55.722Z"
+  },
+  {
+    "id": "b958761ed1e4",
+    "word": "somewhere",
+    "translation": "bir yerde",
+    "alternatives": [
+      {
+        "pos": "zarf",
+        "terms": [
+          "bir yerde",
+          "bir yere",
+          "herhangi bir yerde"
+        ]
+      }
+    ],
+    "sentence": "up, you're on your way somewhere, or you finally found a moment to sit",
+    "sentenceTranslation": "kalk, bir yere doğru gidiyorsun ya da sonunda oturacak bir an buldun",
+    "source": "youtube",
+    "count": 1,
+    "createdAt": "2026-11-05T20:49:48.677Z",
+    "updatedAt": "2026-11-05T20:49:48.677Z"
+  }
+]

@@ -1,0 +1,75 @@
+.sr-clickable-word {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  border-radius: 4px;
+  padding: 0 2px;
+  transition: background-color 0.12s ease, color 0.12s ease;
+  display: inline-block;
+}
+
+.sr-clickable-word:hover {
+  background-color: rgba(58, 99, 201, 0.85) !important;
+  color: #ffffff !important;
+}
+
+.sr-tooltip-popup {
+  position: fixed;
+  z-index: 2147483647;
+  min-width: 240px;
+  max-width: 360px;
+  background: #151b26;
+  color: #f0f4fc;
+  border: 1px solid #3c5aa6;
+  border-radius: 12px;
+  padding: 12px 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  pointer-events: auto;
+}
+
+.sr-tooltip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.sr-tooltip-word {
+  font-size: 18px;
+  font-weight: 700;
+  color: #7eb2ff;
+}
+
+.sr-tooltip-badge {
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 99px;
+  background: #1d4d30;
+  color: #7be392;
+  font-weight: 600;
+}
+
+.sr-tooltip-tr {
+  font-size: 17px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 4px;
+}
+
+.sr-tooltip-alt {
+  font-size: 12px;
+  color: #a4b1c9;
+  margin-top: 5px;
+}
+
+.sr-tooltip-sentence {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 12px;
+  color: #cbd5e8;
+  font-style: italic;
+}
+

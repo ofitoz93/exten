@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Subtitle Remote - Kelime Çevirici & Kaydedici",
+  "version": "1.0.0",
+  "description": "YouTube altyazılarında ve web sayfalarında tıkladığınız İngilizce kelimeleri Türkçeye çevirir ve telefonunuzdaki Kelime Defterine kaydeder.",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "http://localhost:8787/*",
+    "http://127.0.0.1:8787/*",
+    "https://translate.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["content.css"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
+

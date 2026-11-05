@@ -3,11 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-  <title>Subtitle Remote</title>
+  <title>Subtitle Remote & Kelime Defteri</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="status" class="status disconnected">● Bağlanıyor...</div>
+  <header class="topbar">
+    <div id="status" class="status disconnected">● Bağlanıyor...</div>
+    <nav id="tabs" class="tabs hidden">
+      <button class="tab active" data-tab="remote">🎮 Kumanda</button>
+      <button class="tab" data-tab="words">📚 Kelimelerim <span id="words-badge" class="badge">0</span></button>
+    </nav>
+  </header>
 
   <div id="pairing" class="pairing hidden">
     <h1>Eşleştir</h1>
@@ -17,6 +23,7 @@
     <p id="pairing-error" class="error hidden"></p>
   </div>
 
+  <!-- TAB 1: REMOTE CONTROL -->
   <div id="controls" class="controls hidden">
     <div class="button-row">
       <button class="btn" data-action="prevSentence">⏮ Önceki</button>
@@ -29,9 +36,52 @@
       <button class="btn" data-action="forward">İleri ▶</button>
     </div>
 
-    <div id="trackpad" class="trackpad">Sürükle: imleci taşı · Dokun: tıkla</div>
+    <!-- Live Word Translation Card -->
+    <div id="translation-card" class="translation-card hidden">
+      <div class="translation-header">
+        <div class="word-title-group">
+          <span id="tc-word" class="tc-word">word</span>
+          <button id="tc-speak" class="icon-btn" title="Sesli Dinle">🔊</button>
+          <span id="tc-saved-badge" class="saved-pill">✓ Kaydedildi</span>
+        </div>
+        <button id="tc-close" class="icon-btn" title="Kapat">✕</button>
+      </div>
+      <div id="tc-translation" class="tc-translation">anlamı</div>
+      <div id="tc-alternatives" class="tc-alternatives"></div>
+      <div id="tc-sentence" class="tc-sentence hidden"></div>
+    </div>
 
-    <button id="click-btn" class="btn btn-click">Tıkla</button>
+    <div id="trackpad" class="trackpad">
+      Sürükle: imleci taşı · Dokun: tıkla<br />
+      <small>İmleci İngilizce kelimenin üzerine getirip alttaki "Çevir & Kaydet" tuşuna basabilirsin</small>
+    </div>
+
+    <div class="button-row bottom-actions">
+      <button id="click-btn" class="btn btn-click">🖱️ Tıkla</button>
+      <button id="capture-word-btn" class="btn btn-capture">🎯 Kelimeyi Çevir & Kaydet</button>
+    </div>
+  </div>
+
+  <!-- TAB 2: SAVED WORDS (KELİMELERİM) -->
+  <div id="words-view" class="words-view hidden">
+    <div class="words-toolbar">
+      <form id="manual-translate-form" class="manual-form">
+        <input
+          id="manual-word-input"
+          type="text"
+          placeholder="İngilizce kelime yaz veya ara..."
+          autocomplete="off"
+          autocapitalize="off"
+        />
+        <button type="submit" class="btn btn-capture">Çevir & Ekle</button>
+      </form>
+      <div class="words-meta">
+        <span id="words-count-label">0 kayıtlı kelime</span>
+        <a href="/api/words/export.csv" class="export-link" download="kelimelerim.csv">📥 Excel / CSV İndir</a>
+      </div>
+    </div>
+
+    <div id="words-list" class="words-list"></div>
   </div>
 
   <script src="app.js"></script>

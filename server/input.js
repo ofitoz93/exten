@@ -1,4 +1,4 @@
-const { keyboard, mouse, screen, Point } = require('@nut-tree-fork/nut-js');
+const { keyboard, mouse, screen, clipboard, Button, Key, Point, sleep } = require('@nut-tree-fork/nut-js');
 const { pressKeyCombo } = require('./keymap');
 
 // nut.js defaults to a human-like ~500ms delay between key actions, meant
@@ -36,4 +36,24 @@ async function click() {
   await mouse.leftClick();
 }
 
-module.exports = { moveMouseRelative, click, pressKeyCombo };
+/**
+ * Double-clicks at the current PC cursor position to select the word under the cursor,
+ * copies it via Ctrl+C, and returns the copied text from the clipboard.
+ */
+async function captureWordUnderCursor() {
+  try {
+    await clipboard.setContent('');
+  } catch {
+    // ignore clipboard clear errors
+  }
+
+  await mouse.doubleClick(Button.LEFT);
+  await sleep(90);
+  await pressKeyCombo({ modifiers: [Key.LeftControl], main: Key.C });
+  await sleep(90);
+
+  const copied = await clipboard.getContent();
+  return (copied || '').trim();
+}
+
+module.exports = { moveMouseRelative, click, pressKeyCombo, captureWordUnderCursor };
