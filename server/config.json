@@ -1,0 +1,16 @@
+{
+  "port": 8787,
+  "mouse": {
+    "sensitivity": 1.5,
+    "tapMaxDurationMs": 200,
+    "tapMaxMovementPx": 8
+  },
+  "keymap": {
+    "playPause": "space",
+    "prevSentence": "shift+left",
+    "nextSentence": "shift+right",
+    "repeatSentence": "shift+down",
+    "rewind": "left",
+    "forward": "right"
+  }
+}

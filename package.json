@@ -1,0 +1,16 @@
+{
+  "name": "subtitle-remote",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Phone-to-PC remote control (keyboard + trackpad) for Language Reactor on Netflix/YouTube",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "ws": "^8.18.0",
+    "@nut-tree-fork/nut-js": "4.2.6",
+    "qrcode-terminal": "^0.12.0"
+  }
+}

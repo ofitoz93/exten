@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Subtitle Remote</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="status" class="status disconnected">● Bağlanıyor...</div>
+
+  <div id="pairing" class="pairing hidden">
+    <h1>Eşleştir</h1>
+    <p>PC terminalinde görünen token'ı gir:</p>
+    <input id="token-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="token" />
+    <button id="token-submit">Bağlan</button>
+    <p id="pairing-error" class="error hidden"></p>
+  </div>
+
+  <div id="controls" class="controls hidden">
+    <div class="button-row">
+      <button class="btn" data-action="prevSentence">⏮ Önceki</button>
+      <button class="btn btn-primary" data-action="playPause">⏯</button>
+      <button class="btn" data-action="nextSentence">Sonraki ⏭</button>
+    </div>
+    <div class="button-row">
+      <button class="btn" data-action="rewind">◀ Geri</button>
+      <button class="btn" data-action="repeatSentence">↻ Tekrarla</button>
+      <button class="btn" data-action="forward">İleri ▶</button>
+    </div>
+
+    <div id="trackpad" class="trackpad">Sürükle: imleci taşı · Dokun: tıkla</div>
+
+    <button id="click-btn" class="btn btn-click">Tıkla</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
