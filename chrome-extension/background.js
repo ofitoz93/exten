@@ -7,14 +7,51 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       .catch((err) => sendResponse({ error: err.message || 'Çeviri hatası' }));
     return true; // keep channel open for async response
   }
+  if (message && message.type === 'OCR_REQUEST') {
+    ocrViaOffscreen(message.images || [message.image])
+      .then((res) => sendResponse(res))
+      .catch((err) => sendResponse({ ok: false, error: err.message || 'OCR hatası' }));
+    return true;
+  }
+  if (message && message.type === 'CAPTURE_TAB') {
+    chrome.tabs.captureVisibleTab(sender.tab ? sender.tab.windowId : undefined, { format: 'png' })
+      .then((dataUrl) => sendResponse({ ok: true, dataUrl }))
+      .catch((err) => sendResponse({ ok: false, error: err.message }));
+    return true;
+  }
 });
 
-async function handleTranslateAndSave({ word, sentence = '', source = 'youtube' }) {
+let creatingOffscreen = null;
+async function ensureOffscreen() {
+  const url = chrome.runtime.getURL('offscreen.html');
+  const existing = await chrome.runtime.getContexts({
+    contextTypes: ['OFFSCREEN_DOCUMENT'],
+    documentUrls: [url],
+  });
+  if (existing.length > 0) return;
+  if (!creatingOffscreen) {
+    creatingOffscreen = chrome.offscreen
+      .createDocument({
+        url: 'offscreen.html',
+        reasons: ['WORKERS'],
+        justification: 'Run OCR on burned-in video subtitles',
+      })
+      .finally(() => (creatingOffscreen = null));
+  }
+  await creatingOffscreen;
+}
+
+async function ocrViaOffscreen(images) {
+  await ensureOffscreen();
+  return chrome.runtime.sendMessage({ type: 'OCR_RECOGNIZE', images });
+}
+
+async function handleTranslateAndSave({ word, sentence = '', source = 'youtube', save = true }) {
   try {
     const res = await fetch(SERVER_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ word, sentence, save: true, source }),
+      body: JSON.stringify({ word, sentence, save, source }),
     });
     if (!res.ok) {
       throw new Error(`Server error ${res.status}`);
@@ -22,7 +59,7 @@ async function handleTranslateAndSave({ word, sentence = '', source = 'youtube' 
     const data = await res.json();
     return {
       ok: true,
-      syncedToPhone: true,
+      syncedToPhone: data.saved !== false,
       result: data.result,
     };
   } catch {
